@@ -81,7 +81,16 @@ namespace ExercisesConsole
             }
 
             //Write person ages that is "dublicate"
+            var r = from ppl in people
+                    group ppl by ppl.Age into g
+                    where g.Count() > 1
+                    select new { g.Key, Count = g.Count() };
+            Console.WriteLine("-----");
 
+            foreach (var x in r)
+            {
+                Console.WriteLine($"{x.Key} {x.Count}");
+            }
 
 
             Console.ReadLine();
