@@ -30,11 +30,6 @@ namespace ExercisesConsole
                          where ppl.Age < 20
                          select new { Name = ppl.FirstName, LastName = ppl.LastName };
 
-            foreach(var person in people)
-            {
-                Console.WriteLine(person.ToString());
-            }
-            
             foreach (var it in result)
             {
                 Console.WriteLine($"FirstName {it.Name }, LastName {it.LastName}");
@@ -57,9 +52,33 @@ namespace ExercisesConsole
 
             //writeline person list
 
+
+            foreach (var person in people)
+            {
+                Console.WriteLine(person.ToString());
+            }
+
             //write linq statement for people with last name that starts with the letter D, writeline id of them
 
+            var result1 = from ppl in people
+                          where ppl.Age < 20
+                          select new { Id = ppl.Id };
+            Console.WriteLine("----");
+
+            foreach (var it in result1)
+            {
+                Console.WriteLine($" ID {it.Id}");
+            }
+
             //Write linq statement for first Person Older Than 50 In Descending Alphabetical  Order by First Name
+            var result2 = people.OrderByDescending(
+                x => x.Age
+                );
+
+            foreach (var it in result2)
+            {
+                Console.WriteLine(it.ToString());
+            }
 
             //Write person ages that is "dublicate"
 
