@@ -61,7 +61,7 @@ namespace ExercisesConsole
             //write linq statement for people with last name that starts with the letter D, writeline id of them
 
             var result1 = from ppl in people
-                          where ppl.Age < 20
+                          where ppl.LastName.StartsWith("D")
                           select new { Id = ppl.Id };
             Console.WriteLine("----");
 
