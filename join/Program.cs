@@ -59,14 +59,13 @@ namespace ExercisesConsole
             Console.WriteLine(max - min);
 
 
-            var res = from ppl in people
+            var res = (from ppl in people
                       join prch in purchases on ppl.Id equals prch.PersonId into cur
                       orderby cur.Select(x => x.Quantity).Sum() descending
-                      select new { Sum = cur.Select(x => x.Quantity).Sum(), Id = ppl.Id, FirstName = ppl.FirstName, LastName = ppl.LastName };
+                      select new { Sum = cur.Select(x => x.Quantity).Sum(), Id = ppl.Id, FirstName = ppl.FirstName, LastName = ppl.LastName }).First();
 
 
-            var final = res.First();
-            Console.WriteLine(final.FirstName + " " + final.LastName + " : " + final.Sum);
+            Console.WriteLine(res.FirstName + " " + res.LastName + " : " + res.Sum);
 
 
             Console.ReadLine();
