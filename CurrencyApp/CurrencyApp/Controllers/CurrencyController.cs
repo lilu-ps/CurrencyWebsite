@@ -15,11 +15,15 @@ namespace CurrencyApp.Controllers
         {
             _currRep = currRep;
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
             var model = _currRep.getAllCurrencies();
             return View(model);
         }
+
+ 
 
         [HttpGet]
         public IActionResult create()
@@ -32,9 +36,12 @@ namespace CurrencyApp.Controllers
         [HttpPost]
         public IActionResult create(CurrencyModel currencyModel)
         {
+            Console.WriteLine("-----------------", currencyModel.fromCurrency);
             if (ModelState.IsValid)
             {
                 currencyModel.CreateDatetime = DateTime.Now;
+                Console.WriteLine("-----------------", currencyModel.fromCurrency);
+
                 CurrencyModel cm = _currRep.create(currencyModel);
                 return RedirectToAction("Index", "Currency");
             }

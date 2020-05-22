@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CurrencyApp.Migrations
 {
     [DbContext(typeof(CurrencyContext))]
-    [Migration("20200522021857_CurrencyDB")]
+    [Migration("20200522071138_CurrencyDB")]
     partial class CurrencyDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,7 +50,7 @@ namespace CurrencyApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Currencies");
                 });
 #pragma warning restore 612, 618
         }

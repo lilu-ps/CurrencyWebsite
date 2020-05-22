@@ -48,7 +48,7 @@ namespace CurrencyApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Currencies");
                 });
 #pragma warning restore 612, 618
         }
