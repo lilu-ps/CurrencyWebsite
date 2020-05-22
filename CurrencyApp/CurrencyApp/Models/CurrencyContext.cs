@@ -11,7 +11,7 @@ namespace CurrencyApp.Models
 
     public class CurrencyContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        public Microsoft.EntityFrameworkCore.DbSet<CurrencyModel> currencies { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<CurrencyModel> Currencies { get; set; }
 
         public CurrencyContext(DbContextOptions<CurrencyContext> options)
             : base(options)

@@ -14,18 +14,18 @@ namespace CurrencyApp.Models
         }
         public CurrencyModel create(CurrencyModel currencyModel)
         {
-            _cc.currencies.Add(currencyModel);
+            _cc.Currencies.Add(currencyModel);
             _cc.SaveChanges();
             return currencyModel;
         }
 
         public CurrencyModel delete(int Id)
         {
-            CurrencyModel cm = _cc.currencies.FirstOrDefault(e => e.Id == Id);
+            CurrencyModel cm = _cc.Currencies.FirstOrDefault(e => e.Id == Id);
             cm.Removed = 1;
             if (cm != null)
             {
-                _cc.currencies.Remove(cm);
+                _cc.Currencies.Remove(cm);
                 _cc.SaveChanges();
             }
             return cm;
@@ -33,17 +33,17 @@ namespace CurrencyApp.Models
 
         public IEnumerable<CurrencyModel> getAllCurrencies()
         {
-            return _cc.currencies;
+            return _cc.Currencies;
         }
 
         public CurrencyModel getCurr(int Id)
         {
-            return _cc.currencies.Find(Id);//FirstOrDefault(e => e.Id == Id);
+            return _cc.Currencies.Find(Id);//FirstOrDefault(e => e.Id == Id);
         }
 
         public CurrencyModel update(CurrencyModel currencyModel)
         {
-            var cm = _cc.currencies.Attach(currencyModel);
+            var cm = _cc.Currencies.Attach(currencyModel);
             cm.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _cc.SaveChanges();
            
