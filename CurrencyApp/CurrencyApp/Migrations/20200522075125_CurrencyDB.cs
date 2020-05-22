@@ -13,7 +13,7 @@ namespace CurrencyApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Rate = table.Column<decimal>(maxLength: 3, nullable: false),
+                    Rate = table.Column<decimal>(nullable: false),
                     fromCurrency = table.Column<string>(nullable: true),
                     toCurrency = table.Column<string>(maxLength: 3, nullable: true),
                     CreateDatetime = table.Column<DateTime>(nullable: false),

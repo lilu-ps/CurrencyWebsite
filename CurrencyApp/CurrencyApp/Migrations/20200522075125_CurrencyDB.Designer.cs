@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CurrencyApp.Migrations
 {
     [DbContext(typeof(CurrencyContext))]
-    [Migration("20200522071138_CurrencyDB")]
+    [Migration("20200522075125_CurrencyDB")]
     partial class CurrencyDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,8 +32,7 @@ namespace CurrencyApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Rate")
-                        .HasColumnType("decimal(18,2)")
-                        .HasMaxLength(3);
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Removed")
                         .HasColumnType("int");

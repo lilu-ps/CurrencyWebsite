@@ -10,7 +10,7 @@ namespace CurrencyApp.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(3)]
+        //[MaxLength(3)]
         public decimal Rate { get; set; }
 
         public string fromCurrency { get; set; }

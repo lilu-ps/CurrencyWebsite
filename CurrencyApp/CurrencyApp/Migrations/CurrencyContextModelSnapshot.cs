@@ -30,8 +30,7 @@ namespace CurrencyApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Rate")
-                        .HasColumnType("decimal(18,2)")
-                        .HasMaxLength(3);
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Removed")
                         .HasColumnType("int");
