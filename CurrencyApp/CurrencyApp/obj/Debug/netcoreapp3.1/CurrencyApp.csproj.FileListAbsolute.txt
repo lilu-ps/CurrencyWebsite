@@ -152,3 +152,6 @@ C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcor
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Currency\create.cshtml.g.cs
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Currency\delete.cshtml.g.cs
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Currency\update.cshtml.g.cs
+C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Calculator\Index.cshtml.g.cs
+C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Calculator\Main.cshtml.g.cs
+C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Calculator\convert.cshtml.g.cs

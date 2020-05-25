@@ -12,6 +12,7 @@ namespace CurrencyApp.Models
         {
             _cc = cc;
         }
+
         public CurrencyModel create(CurrencyModel currencyModel)
         {
             _cc.Currencies.Add(currencyModel);

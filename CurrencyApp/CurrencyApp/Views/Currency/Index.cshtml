@@ -1,41 +1,44 @@
-﻿@model  IEnumerable< CurrencyApp.Models.CurrencyModel>
+﻿@model IEnumerable<CurrencyApp.Models.CurrencyModel>
 
-    @{
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+}
 
-    <h1>Currency Info</h1>
-
-    <p>
-        <a asp-action="create">Create New</a>
-    </p>
+<h1>Currency Info</h1>
 
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Rate
-                </th>
-                <th>
-                    fromCurrency
-                </th>
-                <th>
-                    toCurrency
-                </th>
-                <th>
-                    CreateDatetime
-                </th>
-                <th>
-                    UpdateDatetime
-                </th>
+<p>
+    <a asp-action="create">Create New</a>
+</p>
 
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model) {
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Rate
+            </th>
+            <th>
+                fromCurrency
+            </th>
+            <th>
+                toCurrency
+            </th>
+            <th>
+                CreateDatetime
+            </th>
+            <th>
+                UpdateDatetime
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     @item.Rate
@@ -60,6 +63,6 @@
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>

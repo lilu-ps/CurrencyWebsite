@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CurrencyApp.Models.CalculatorModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Calculator Info</h1>
+
+
+<p>
+    <a asp-action="convert">Convert Currencies</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Convert From
+            </th>
+            <th>
+                Convert To
+            </th>
+            <th>
+                Rate
+            </th>
+            <th>
+                sell
+            </th>
+            <th>
+                buy
+            </th>
+            <th>CreateDatetime</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.fromCurrency
+            </td>
+            <td>
+                @item.toCurrency
+            </td>
+            <td>
+                @item.Rate
+            </td>
+
+            <td>
+                @item.sell
+            </td>
+            <td>
+                @item.buy
+            </td>
+            <td>
+                @item.CreateDatetime
+            </td>
+            
+        </tr>
+        }
+    </tbody>
+</table>

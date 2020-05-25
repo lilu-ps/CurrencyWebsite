@@ -29,6 +29,7 @@ namespace CurrencyApp
             services.AddControllersWithViews();
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddScoped<ICurrencyRepository, FullCurrencyRepository>();
+            services.AddScoped<ICalculatorRepository, FullCalculatorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

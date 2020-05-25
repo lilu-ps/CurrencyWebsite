@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "convert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>convert</h1>
+
+
+<form asp-controller="Calculator" asp-action="convert" method="post" class="mt-3">
+
+    @{
+        Html.RenderPartial("Main");
+    }
+
+</form>
+

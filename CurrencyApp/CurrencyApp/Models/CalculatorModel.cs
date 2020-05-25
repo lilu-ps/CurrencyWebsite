@@ -7,18 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CurrencyApp.Models
 {
-    public class CurrencyModel
+    public class CalculatorModel
     {
         [Key]
         public int Id { get; set; }
-        //[MaxLength(3)]
         public decimal Rate { get; set; }
 
         public string fromCurrency { get; set; }
         [MaxLength(3)]
         public string toCurrency { get; set; }
         public DateTime CreateDatetime { get; set; }
-        public DateTime UpdateDatetime { get; set; }
-        public int Removed { get; set; } = 0;
+
+        public int sell { get; set; }
+        public int buy { get; set; }
+
+       
+
     }
 }

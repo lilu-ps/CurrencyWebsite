@@ -8,6 +8,24 @@ namespace CurrencyApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "CalculatroOperations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Rate = table.Column<decimal>(nullable: false),
+                    fromCurrency = table.Column<string>(nullable: true),
+                    toCurrency = table.Column<string>(maxLength: 3, nullable: true),
+                    CreateDatetime = table.Column<DateTime>(nullable: false),
+                    sell = table.Column<int>(nullable: false),
+                    buy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CalculatroOperations", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Currencies",
                 columns: table => new
                 {
@@ -28,6 +46,9 @@ namespace CurrencyApp.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "CalculatroOperations");
+
             migrationBuilder.DropTable(
                 name: "Currencies");
         }

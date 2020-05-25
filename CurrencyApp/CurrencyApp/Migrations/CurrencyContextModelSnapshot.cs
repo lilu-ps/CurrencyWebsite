@@ -19,6 +19,37 @@ namespace CurrencyApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("CurrencyApp.Models.CalculatorModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreateDatetime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("buy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fromCurrency")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("sell")
+                        .HasColumnType("int");
+
+                    b.Property<string>("toCurrency")
+                        .HasColumnType("nvarchar(3)")
+                        .HasMaxLength(3);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CalculatroOperations");
+                });
+
             modelBuilder.Entity("CurrencyApp.Models.CurrencyModel", b =>
                 {
                     b.Property<int>("Id")
