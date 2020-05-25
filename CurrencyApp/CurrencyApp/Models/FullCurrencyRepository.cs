@@ -39,7 +39,7 @@ namespace CurrencyApp.Models
 
         public CurrencyModel getCurr(int Id)
         {
-            return _cc.Currencies.Find(Id);//FirstOrDefault(e => e.Id == Id);
+            return _cc.Currencies.FirstOrDefault(e => e.Id == Id);
         }
 
         public CurrencyModel update(CurrencyModel currencyModel)

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CurrencyApp.Models;
+﻿using CurrencyApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace CurrencyApp.Controllers
 {
@@ -23,7 +20,7 @@ namespace CurrencyApp.Controllers
             return View(model);
         }
 
- 
+
 
         [HttpGet]
         public IActionResult create()
@@ -36,11 +33,10 @@ namespace CurrencyApp.Controllers
         [HttpPost]
         public IActionResult create(CurrencyModel currencyModel)
         {
-            Console.WriteLine("-----------------", currencyModel.fromCurrency);
             if (ModelState.IsValid)
             {
                 currencyModel.CreateDatetime = DateTime.Now;
-                Console.WriteLine("-----------------", currencyModel.fromCurrency);
+                currencyModel.UpdateDatetime = currencyModel.CreateDatetime;
 
                 CurrencyModel cm = _currRep.create(currencyModel);
                 return RedirectToAction("Index", "Currency");
@@ -52,6 +48,7 @@ namespace CurrencyApp.Controllers
         public IActionResult update(int Id)
         {
             CurrencyModel cm = _currRep.getCurr(Id);
+            System.Diagnostics.Debug.WriteLine(Id);
             return View(cm);
         }
 
@@ -60,7 +57,16 @@ namespace CurrencyApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                //System.Diagnostics.Debug.WriteLine("----------");
+
+                //System.Diagnostics.Debug.WriteLine(currencyModel.Id);
+                //System.Diagnostics.Debug.WriteLine(currencyModel.fromCurrency);
+                //System.Diagnostics.Debug.WriteLine(currencyModel.toCurrency);
+
+                int id = currencyModel.Id;
                 currencyModel.UpdateDatetime = DateTime.Now;
+
+
                 _currRep.update(currencyModel);
                 return RedirectToAction("Index", "Currency");
             }
@@ -76,5 +82,5 @@ namespace CurrencyApp.Controllers
         }
     }
 
-        
+
 }
