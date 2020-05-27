@@ -44,6 +44,11 @@ namespace CurrencyApp.Models
 
         public CurrencyModel update(CurrencyModel currencyModel)
         {
+            System.Diagnostics.Debug.WriteLine(currencyModel.Id);
+            DateTime date = _cc.Currencies.FirstOrDefault(e => e.Id == currencyModel.Id).CreateDatetime;
+
+            System.Diagnostics.Debug.WriteLine(date);
+
             var cm = _cc.Currencies.Attach(currencyModel);
             cm.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _cc.SaveChanges();

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CurrencyApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -33,6 +31,7 @@ namespace CurrencyApp.Controllers
             CalculatorModel cm = new CalculatorModel();
 
             HashSet<String> uniqueCurrencies = new HashSet<String>();
+            uniqueCurrencies.Add(null);
             foreach (CurrencyModel curr in _currRep.getAllCurrencies())
             {
                 uniqueCurrencies.Add(curr.fromCurrency);
@@ -53,6 +52,13 @@ namespace CurrencyApp.Controllers
                 return RedirectToAction("Index", "Calculator");
             }
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult Rate(CalculatorModel data)
+        {
+            var result = new Random().Next(2, 4);
+            return Json(result);
         }
     }
 }
