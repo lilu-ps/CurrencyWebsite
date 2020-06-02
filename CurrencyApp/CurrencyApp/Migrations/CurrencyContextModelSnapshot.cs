@@ -33,12 +33,15 @@ namespace CurrencyApp.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("fromCurrency")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(3)")
+                        .HasMaxLength(3);
 
                     b.Property<decimal>("sell")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("toCurrency")
+                        .IsRequired()
                         .HasColumnType("nvarchar(3)")
                         .HasMaxLength(3);
 
@@ -58,6 +61,7 @@ namespace CurrencyApp.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Currency")
+                        .IsRequired()
                         .HasColumnType("nvarchar(3)")
                         .HasMaxLength(3);
 

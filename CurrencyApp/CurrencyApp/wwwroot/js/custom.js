@@ -18,13 +18,17 @@
                         $("#rate-holder").val(data);
                         var buy = $("#buy").val();
                         var sell = $("#sell").val();
-                        if (buy == "0,00" && sell == "0,00") {
-                            $("#buy").val("0,00");
-                            $("#sell").val("0,00");
-                        }else if (buy != "0,00") {
-                            $("#sell").val(calculateAmount(buy, 0));
-                        } else if (sell != "0,00") {
-                            $("#buy").val(calculateAmount(sell, 1));
+
+                        
+                        if (parseFloat(buy) != 0 && parseFloat(sell) != 0) {
+                                $("#buy").val(0);
+                                $("#sell").val(0);
+                        } else if(parseFloat(buy) != 0) {
+                                var res = "" + calculateAmount(buy, 0);
+                                $("#sell").val(res);
+                        } else if (parseFloat(sell) != 0) {
+                                var res = "" + calculateAmount(sell, 1);
+                                $("#buy").val(res);
                         } 
                     },
                     error: function () {
@@ -36,12 +40,14 @@
 
     $("#sell").change(function () {
         var sell = $("#sell").val();
-        $("#buy").val(calculateAmount(sell, 1));
+        var res = "" + calculateAmount(sell, 1);
+        $("#buy").val(res);
     });
 
     $("#buy").change(function () {
         var buy = $("#buy").val();
-        $("#sell").val(calculateAmount(buy, 0));
+        var res = "" + calculateAmount(buy, 0);
+        $("#sell").val(res);
     });
 
     function calculateAmount(amount, mult) {
@@ -57,29 +63,9 @@
                 result = amount / rate;
             }
         }
+        if (result != 0) {
+            document.getElementById("dis").disabled = false;
+        }
         return result;
     }
-
-    $("#dis").click(function () {
-        alert("heeeeererereASdsad");
-
-        var fromCurrency = $("#from-data").val();
-        var toCurrency = $("#to-data").val()
-        var sell = $("#sell").val();
-        var buy = $("#buy").val();
-
-        if (fromCurrency && toCurrency && sell != "0,00" && buy != "0,00") {
-            $.ajax({
-                type: 'POST',
-                url: '/Calculator/convert',
-                data: {
-                    'fromCurrency': fromCurrency,
-                    'toCurrency': toCurrency,
-                    'sell': sell,
-                    'buy': buy
-                },
-                dataType: 'json'
-            });
-        }
-    });
 });

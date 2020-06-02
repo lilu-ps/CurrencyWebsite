@@ -11,14 +11,21 @@ namespace CurrencyApp.Models
     {
         [Key]
         public int Id { get; set; }
-        //public decimal Rate { get; set; }
 
+        [Required]
+        [MaxLength(3)]
         public string fromCurrency { get; set; }
+
+        [Required]
         [MaxLength(3)]
         public string toCurrency { get; set; }
+
+
         public DateTime CreateDatetime { get; set; }
 
+        [Required]
         public decimal sell { get; set; }
+        [Required]
         public decimal buy { get; set; }
 
         

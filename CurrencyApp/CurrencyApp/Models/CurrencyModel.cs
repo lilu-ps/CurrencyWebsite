@@ -11,10 +11,16 @@ namespace CurrencyApp.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Required]
         public decimal BuyRate { get; set; }
 
+
+        [Required]
         public decimal SellRate { get; set; }
 
+
+        [Required]
         [MaxLength(3)]
         public string Currency { get; set; }
 
