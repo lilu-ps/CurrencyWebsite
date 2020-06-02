@@ -15,6 +15,7 @@ namespace CurrencyApp.Models
 
         public CurrencyModel create(CurrencyModel currencyModel)
         {
+            currencyModel.Date = DateTime.Now;
             _cc.Currencies.Add(currencyModel);
             _cc.SaveChanges();
             return currencyModel;
@@ -23,7 +24,6 @@ namespace CurrencyApp.Models
         public CurrencyModel delete(int Id)
         {
             CurrencyModel cm = _cc.Currencies.FirstOrDefault(e => e.Id == Id);
-            cm.Removed = 1;
             if (cm != null)
             {
                 _cc.Currencies.Remove(cm);
@@ -42,13 +42,13 @@ namespace CurrencyApp.Models
             return _cc.Currencies.FirstOrDefault(e => e.Id == Id);
         }
 
+        public CurrencyModel getCurrByName(string Currency)
+        {
+            return _cc.Currencies.FirstOrDefault(e => e.Currency == Currency);
+        }
+
         public CurrencyModel update(CurrencyModel currencyModel)
         {
-            System.Diagnostics.Debug.WriteLine(currencyModel.Id);
-            DateTime date = _cc.Currencies.FirstOrDefault(e => e.Id == currencyModel.Id).CreateDatetime;
-
-            System.Diagnostics.Debug.WriteLine(date);
-
             var cm = _cc.Currencies.Attach(currencyModel);
             cm.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _cc.SaveChanges();

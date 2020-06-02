@@ -35,9 +35,6 @@ namespace CurrencyApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                currencyModel.CreateDatetime = DateTime.Now;
-                currencyModel.UpdateDatetime = currencyModel.CreateDatetime;
-
                 CurrencyModel cm = _currRep.create(currencyModel);
                 return RedirectToAction("Index", "Currency");
             }
@@ -57,16 +54,6 @@ namespace CurrencyApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                //System.Diagnostics.Debug.WriteLine("----------");
-
-                //System.Diagnostics.Debug.WriteLine(currencyModel.Id);
-                //System.Diagnostics.Debug.WriteLine(currencyModel.fromCurrency);
-                //System.Diagnostics.Debug.WriteLine(currencyModel.toCurrency);
-
-                int id = currencyModel.Id;
-                currencyModel.UpdateDatetime = DateTime.Now;
-
-
                 _currRep.update(currencyModel);
                 return RedirectToAction("Index", "Currency");
             }

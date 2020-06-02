@@ -14,7 +14,7 @@
         </div>
         <div class="col-sm-10">
 
-            @Html.DropDownListFor(model => model.fromCurrency, ViewBag.operations as SelectList,
+            @Html.DropDownListFor(model => model.fromCurrency, ViewBag.operations as SelectList, "Select",
                 new {@class = "form-control", @id = "from-data"})
             @Html.ValidationMessageFor(model => model.fromCurrency, "", new { @class = "text -danger" })
         </div>
@@ -27,7 +27,7 @@
             <div class="col-sm-10">
 
 
-                @Html.DropDownListFor(model => model.toCurrency, ViewBag.operations as SelectList,
+                @Html.DropDownListFor(model => model.toCurrency, ViewBag.operations as SelectList, "Select",
                     new { @class = "form-control", @id = "to-data"})
                 @Html.ValidationMessageFor(model => model.toCurrency, "", new { @class = "text-danger" })
 
@@ -36,11 +36,11 @@
 
         <div class="form-group-row">
             <div class="lable">
-                <label asp-for="Rate" class="col-sm-2 col-form-label">Rate</label>
+                <label class="col-sm-2 col-form-label">Rate</label>
             </div>
             <div class="col-sm-10">
-                <input asp-for="Rate" class="form-control" id="rate-holder" placeholder="Rate">
-                <span asp-validation-for="Rate" class="text-danger"></span>
+                <input type="text" class="form-control" id="rate-holder" placeholder="Rate" disabled>
+                @*<span asp-validation-for="Rate" class="text-danger"></span>*@
             </div>
         </div>
 
@@ -49,7 +49,7 @@
                 <label asp-for="sell" class="col-sm-2 col-form-label">Sell</label>
             </div>
             <div class="col-sm-10">
-                <input asp-for="sell" class="form-control" placeholder="">
+                <input asp-for="sell" id ="sell" class="form-control" placeholder="">
                 <span asp-validation-for="sell" class="text-danger"></span>
             </div>
         </div>
@@ -59,7 +59,7 @@
                 <label asp-for="buy" class="col-sm-2 col-form-label">Buy</label>
             </div>
             <div class="col-sm-10">
-                <input asp-for="buy" class="form-control" placeholder="">
+                <input asp-for="buy" id="buy" class="form-control" placeholder="">
                 <span asp-validation-for="buy" class="text-danger"></span>
             </div>
         </div>

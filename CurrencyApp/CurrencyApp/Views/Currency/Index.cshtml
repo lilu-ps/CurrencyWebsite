@@ -18,21 +18,20 @@
     <thead>
         <tr>
             <th>
-                Rate
-            </th>
-            <th>
-                fromCurrency
-            </th>
-            <th>
-                toCurrency
-            </th>
-            <th>
-                CreateDatetime
-            </th>
-            <th>
-                UpdateDatetime
+                BuyRate
             </th>
 
+            <th>
+                SellRate
+            </th>
+
+            <th>
+                Currency
+            </th>
+
+            <th>
+                Date
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,22 +40,16 @@
         {
             <tr>
                 <td>
-                    @item.Rate
+                    @item.BuyRate
                 </td>
                 <td>
-                    @item.fromCurrency
+                    @item.SellRate
                 </td>
                 <td>
-                    @item.toCurrency
+                    @item.Currency
                 </td>
                 <td>
-                    @item.CreateDatetime
-                </td>
-                <td>
-                    @item.UpdateDatetime
-                </td>
-                <td>
-                    @item.Removed
+                    @item.Date
                 </td>
                 <td>
                     <a asp-action="Update" asp-route-id="@item.Id">Update</a> |

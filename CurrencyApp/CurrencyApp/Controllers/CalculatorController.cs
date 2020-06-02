@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using CurrencyApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace CurrencyApp.Controllers
 {
@@ -21,6 +24,7 @@ namespace CurrencyApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+
             var model = _calRep.getAllOperations();
             return View(model); 
         }
@@ -31,10 +35,9 @@ namespace CurrencyApp.Controllers
             CalculatorModel cm = new CalculatorModel();
 
             HashSet<String> uniqueCurrencies = new HashSet<String>();
-            uniqueCurrencies.Add(null);
             foreach (CurrencyModel curr in _currRep.getAllCurrencies())
             {
-                uniqueCurrencies.Add(curr.fromCurrency);
+                uniqueCurrencies.Add(curr.Currency);
             }
             ViewBag.operations = new SelectList(uniqueCurrencies);
 
@@ -43,21 +46,35 @@ namespace CurrencyApp.Controllers
 
 
         [HttpPost]
-        public IActionResult convert(CalculatorModel calculatorModel)
+        public IActionResult convert(string fromCurrency, string toCurrency, string sell, string buy)//CalculatorModel calculatorModel)
         {
             if (ModelState.IsValid)
             {
+                CalculatorModel calculatorModel = new CalculatorModel();
+                calculatorModel.fromCurrency = fromCurrency;
+                calculatorModel.toCurrency = toCurrency;
+                calculatorModel.sell = decimal.Parse(sell, CultureInfo.InvariantCulture);
+                calculatorModel.buy = decimal.Parse(buy, CultureInfo.InvariantCulture);
+
+
                 calculatorModel.CreateDatetime = DateTime.Now;
+
+
                 _calRep.convert(calculatorModel);
+
+
                 return RedirectToAction("Index", "Calculator");
             }
             return View();
         }
 
         [HttpPost]
-        public JsonResult Rate(CalculatorModel data)
+        public JsonResult getCurrencyRate(string fromCurrency, string toCurrency)
         {
-            var result = new Random().Next(2, 4);
+            
+            CurrencyModel from =  _currRep.getCurrByName(fromCurrency);
+            CurrencyModel to = _currRep.getCurrByName(toCurrency);
+            var result = 1 / to.SellRate * from.BuyRate;
             return Json(result);
         }
     }

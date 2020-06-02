@@ -13,12 +13,11 @@ namespace CurrencyApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Rate = table.Column<decimal>(nullable: false),
                     fromCurrency = table.Column<string>(nullable: true),
                     toCurrency = table.Column<string>(maxLength: 3, nullable: true),
                     CreateDatetime = table.Column<DateTime>(nullable: false),
-                    sell = table.Column<int>(nullable: false),
-                    buy = table.Column<int>(nullable: false)
+                    sell = table.Column<decimal>(nullable: false),
+                    buy = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,12 +30,10 @@ namespace CurrencyApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Rate = table.Column<decimal>(nullable: false),
-                    fromCurrency = table.Column<string>(nullable: true),
-                    toCurrency = table.Column<string>(maxLength: 3, nullable: true),
-                    CreateDatetime = table.Column<DateTime>(nullable: false),
-                    UpdateDatetime = table.Column<DateTime>(nullable: false),
-                    Removed = table.Column<int>(nullable: false)
+                    BuyRate = table.Column<decimal>(nullable: false),
+                    SellRate = table.Column<decimal>(nullable: false),
+                    Currency = table.Column<string>(maxLength: 3, nullable: true),
+                    Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
