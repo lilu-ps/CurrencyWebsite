@@ -9,6 +9,7 @@ namespace CurrencyApp.Models
         public int Id { get; set; }
 
         [Required]
+        [DataType(DataType.Text)]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string fromCurrency { get; set; }
 

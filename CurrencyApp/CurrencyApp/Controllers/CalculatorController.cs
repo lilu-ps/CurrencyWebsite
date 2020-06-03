@@ -53,8 +53,14 @@ namespace CurrencyApp.Controllers
                 calculatorModel.toCurrency = toCurrency;
                 calculatorModel.sell = decimal.Parse(sell, CultureInfo.InvariantCulture);
                 calculatorModel.buy = decimal.Parse(buy, CultureInfo.InvariantCulture);
-                calculatorModel.comment = comment;
+                if (comment == null)
+                {
+                    calculatorModel.comment = "";
+                }else
+                {
+                    calculatorModel.comment = comment;
 
+                }
 
                 calculatorModel.CreateDatetime = DateTime.Now;
 

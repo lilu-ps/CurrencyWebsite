@@ -21,6 +21,7 @@ namespace CurrencyApp.Models
 
 
         [Required]
+        [DataType(DataType.Text)]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string Currency { get; set; }
 

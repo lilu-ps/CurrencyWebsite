@@ -9,14 +9,17 @@ namespace CurrencyApp.Models
 
         [Required]
         [MaxLength(3)]
+        [DataType(DataType.Text)]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string CurrencyCode { get; set; }
 
         [Required]
+        [DataType(DataType.Text)]
         //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string CurrencyName { get; set; }
 
         [Required]
+        [DataType(DataType.Text)]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string CurrencyNameLatin { get; set; }
 
