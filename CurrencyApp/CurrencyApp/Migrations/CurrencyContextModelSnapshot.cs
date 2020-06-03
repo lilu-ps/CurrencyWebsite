@@ -33,6 +33,7 @@ namespace CurrencyApp.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("comment")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("fromCurrency")

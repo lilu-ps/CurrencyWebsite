@@ -80,7 +80,6 @@
             if (parseFloat(am) < 3000 || $("#comment-holder").val() != "") {
                 document.getElementById("dis").disabled = false;
             } else {
-                alert("heree");
                 document.getElementById("dis").disabled = true;
             }
         }

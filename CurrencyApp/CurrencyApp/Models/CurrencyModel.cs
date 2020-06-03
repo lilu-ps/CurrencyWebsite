@@ -10,18 +10,22 @@ namespace CurrencyApp.Models
 
         [Required]
         //[RegularExpression(@"^[1-9]\d*(\.\d+)?$", ErrorMessage = "Decimal only")]
+        //[RegularExpression(@"/^\d*\.?\d*$/", ErrorMessage = "Decimal only")]
         public decimal BuyRate { get; set; }
 
 
         [Required]
         //[RegularExpression(@"^[1-9]\d*(\.\d+)?$", ErrorMessage = "Decimal only")]
+        //[RegularExpression(@"/^\d*\.?\d*$/", ErrorMessage = "Decimal only")]
         public decimal SellRate { get; set; }
 
 
         [Required]
-        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string Currency { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
     }
 }

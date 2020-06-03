@@ -9,14 +9,15 @@ namespace CurrencyApp.Models
         public int Id { get; set; }
 
         [Required]
-        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string fromCurrency { get; set; }
 
         [Required]
-        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string toCurrency { get; set; }
 
-
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime CreateDatetime { get; set; }
 
 
@@ -28,6 +29,8 @@ namespace CurrencyApp.Models
         //[RegularExpression(@"^[1-9]\d*(\.\d+)?$", ErrorMessage = "Decimal only")]
         public decimal buy { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
         public string comment { get; set; }
 
 
