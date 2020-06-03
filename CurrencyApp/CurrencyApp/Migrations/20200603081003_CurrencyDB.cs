@@ -13,8 +13,8 @@ namespace CurrencyApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    fromCurrency = table.Column<string>(maxLength: 3, nullable: false),
-                    toCurrency = table.Column<string>(maxLength: 3, nullable: false),
+                    fromCurrency = table.Column<string>(nullable: false),
+                    toCurrency = table.Column<string>(nullable: false),
                     CreateDatetime = table.Column<DateTime>(nullable: false),
                     sell = table.Column<decimal>(nullable: false),
                     buy = table.Column<decimal>(nullable: false)
@@ -32,12 +32,28 @@ namespace CurrencyApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BuyRate = table.Column<decimal>(nullable: false),
                     SellRate = table.Column<decimal>(nullable: false),
-                    Currency = table.Column<string>(maxLength: 3, nullable: false),
+                    Currency = table.Column<string>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Currencies", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RegisteredList",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CurrencyCode = table.Column<string>(maxLength: 3, nullable: false),
+                    CurrencyName = table.Column<string>(nullable: false),
+                    CurrencyNameLatin = table.Column<string>(nullable: false),
+                    OrderNum = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RegisteredList", x => x.Id);
                 });
         }
 
@@ -48,6 +64,9 @@ namespace CurrencyApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Currencies");
+
+            migrationBuilder.DropTable(
+                name: "RegisteredList");
         }
     }
 }

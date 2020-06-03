@@ -1,16 +1,22 @@
 ﻿using CurrencyApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace CurrencyApp.Controllers
 {
     public class CurrencyController : Controller
     {
         private ICurrencyRepository _currRep;
+        private IRegisterRepository _regRep;
 
-        public CurrencyController(ICurrencyRepository currRep)
+        public CurrencyController(ICurrencyRepository currRep, IRegisterRepository regRep)
         {
             _currRep = currRep;
+            _regRep = regRep;
         }
 
         [HttpGet]
@@ -26,6 +32,14 @@ namespace CurrencyApp.Controllers
         public IActionResult create()
         {
             CurrencyModel cm = new CurrencyModel();
+            List<RegisterModel> registeredCurrencies = _regRep.GetAllRegisteredCurrencies().ToList().OrderBy(rm => rm.OrderNum).ToList();
+            
+            List<string> uniqueCurrencies = new List<string>();
+            foreach (RegisterModel rm in registeredCurrencies)
+            {
+                uniqueCurrencies.Add(rm.CurrencyCode);
+            }
+            ViewBag.registeredList = new SelectList(uniqueCurrencies);
             return View(cm);
         }
 
@@ -45,7 +59,6 @@ namespace CurrencyApp.Controllers
         public IActionResult update(int Id)
         {
             CurrencyModel cm = _currRep.getCurr(Id);
-            System.Diagnostics.Debug.WriteLine(Id);
             return View(cm);
         }
 

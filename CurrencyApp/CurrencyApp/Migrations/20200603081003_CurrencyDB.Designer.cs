@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CurrencyApp.Migrations
 {
     [DbContext(typeof(CurrencyContext))]
-    [Migration("20200602214440_CurrencyDB")]
+    [Migration("20200603081003_CurrencyDB")]
     partial class CurrencyDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,16 +36,14 @@ namespace CurrencyApp.Migrations
 
                     b.Property<string>("fromCurrency")
                         .IsRequired()
-                        .HasColumnType("nvarchar(3)")
-                        .HasMaxLength(3);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("sell")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("toCurrency")
                         .IsRequired()
-                        .HasColumnType("nvarchar(3)")
-                        .HasMaxLength(3);
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -64,8 +62,7 @@ namespace CurrencyApp.Migrations
 
                     b.Property<string>("Currency")
                         .IsRequired()
-                        .HasColumnType("nvarchar(3)")
-                        .HasMaxLength(3);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -76,6 +73,34 @@ namespace CurrencyApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Currencies");
+                });
+
+            modelBuilder.Entity("CurrencyApp.Models.RegisterModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(3)")
+                        .HasMaxLength(3);
+
+                    b.Property<string>("CurrencyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CurrencyNameLatin")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderNum")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RegisteredList");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CurrencyApp.Models
 {
@@ -13,19 +9,23 @@ namespace CurrencyApp.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(3)]
+        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string fromCurrency { get; set; }
 
         [Required]
-        [MaxLength(3)]
+        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only")]
         public string toCurrency { get; set; }
 
 
         public DateTime CreateDatetime { get; set; }
 
+
         [Required]
+        //[RegularExpression(@"^[1-9]\d*(\.\d+)?$", ErrorMessage = "Decimal only")]
         public decimal sell { get; set; }
+
         [Required]
+        //[RegularExpression(@"^[1-9]\d*(\.\d+)?$", ErrorMessage = "Decimal only")]
         public decimal buy { get; set; }
 
         

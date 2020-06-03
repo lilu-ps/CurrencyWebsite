@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CurrencyApp.Models
 {
@@ -11,7 +6,11 @@ namespace CurrencyApp.Models
 
     public class CurrencyContext : Microsoft.EntityFrameworkCore.DbContext
     {
+
+        public Microsoft.EntityFrameworkCore.DbSet<RegisterModel> RegisteredList { get; set; }
+
         public Microsoft.EntityFrameworkCore.DbSet<CurrencyModel> Currencies { get; set; }
+
         public Microsoft.EntityFrameworkCore.DbSet<CalculatorModel> CalculatroOperations { get; set; }
 
         public CurrencyContext(DbContextOptions<CurrencyContext> options)

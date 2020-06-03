@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CurrencyApp.Models.RegisterModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Currency Info</h1>
+
+
+<p>
+    <a asp-action="add">Add New Currency</a>
+</p>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                CurrencyCode
+            </th>
+
+            <th>
+                CurrencyName
+            </th>
+
+            <th>
+                CurrencyNameLatin
+            </th>
+
+            @*<th>
+                OrderNum
+            </th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CurrencyCode
+                </td>
+                <td>
+                    @item.CurrencyName
+                </td>
+                <td>
+                    @item.CurrencyNameLatin
+                </td>
+                @*<td>
+                    @item.OrderNum
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

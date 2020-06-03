@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CurrencyApp.Models
 {
@@ -16,8 +15,12 @@ namespace CurrencyApp.Models
         public CurrencyModel create(CurrencyModel currencyModel)
         {
             currencyModel.Date = DateTime.Now;
-            _cc.Currencies.Add(currencyModel);
-            _cc.SaveChanges();
+            if (_cc.Currencies.FirstOrDefault(e => e.Currency == currencyModel.Currency) == null)
+            {
+                _cc.Currencies.Add(currencyModel);
+                _cc.SaveChanges();
+            }
+        
             return currencyModel;
         }
 

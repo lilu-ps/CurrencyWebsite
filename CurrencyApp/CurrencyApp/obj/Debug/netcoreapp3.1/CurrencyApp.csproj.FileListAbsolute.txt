@@ -155,3 +155,6 @@ C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcor
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Calculator\convert.cshtml.g.cs
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\CurrencyApp.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\CurrencyApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Register\add.cshtml.g.cs
+C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Register\Index.cshtml.g.cs
+C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Register\Main.cshtml.g.cs

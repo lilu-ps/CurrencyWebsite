@@ -1,5 +1,3 @@
-using System;
-
 namespace CurrencyApp.Models
 {
     public class ErrorViewModel
