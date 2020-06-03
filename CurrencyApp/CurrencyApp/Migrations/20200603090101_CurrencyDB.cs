@@ -17,7 +17,8 @@ namespace CurrencyApp.Migrations
                     toCurrency = table.Column<string>(nullable: false),
                     CreateDatetime = table.Column<DateTime>(nullable: false),
                     sell = table.Column<decimal>(nullable: false),
-                    buy = table.Column<decimal>(nullable: false)
+                    buy = table.Column<decimal>(nullable: false),
+                    comment = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CurrencyApp.Migrations
 {
     [DbContext(typeof(CurrencyContext))]
-    [Migration("20200603081003_CurrencyDB")]
+    [Migration("20200603090101_CurrencyDB")]
     partial class CurrencyDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,9 @@ namespace CurrencyApp.Migrations
 
                     b.Property<decimal>("buy")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("comment")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("fromCurrency")
                         .IsRequired()

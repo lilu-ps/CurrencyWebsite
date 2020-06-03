@@ -6,19 +6,19 @@
 
 
 
-<div class="main">
+    <div class="main">
 
-    <div class="form-group-row">
-        <div class="lable">
-            <label asp-for="fromCurrency" class="col-sm-2 col-form-label">From</label>
-        </div>
-        <div class="col-sm-10">
+        <div class="form-group-row">
+            <div class="lable">
+                <label asp-for="fromCurrency" class="col-sm-2 col-form-label">From</label>
+            </div>
+            <div class="col-sm-10">
 
-            @Html.DropDownListFor(model => model.fromCurrency, ViewBag.operations as SelectList, "Select",
-                new {@class = "form-control", @id = "from-data"})
-            @Html.ValidationMessageFor(model => model.fromCurrency, "", new { @class = "text -danger" })
+                @Html.DropDownListFor(model => model.fromCurrency, ViewBag.operations as SelectList, "Select",
+                    new { @class = "form-control", @id = "from-data" })
+                @Html.ValidationMessageFor(model => model.fromCurrency, "", new { @class = "text -danger" })
+            </div>
         </div>
-    </div>
         <div class="form-group-row">
             <div class="lable">
                 <label asp-for="toCurrency" class="col-sm-2 col-form-label">To</label>
@@ -28,7 +28,7 @@
 
 
                 @Html.DropDownListFor(model => model.toCurrency, ViewBag.operations as SelectList, "Select",
-                    new { @class = "form-control", @id = "to-data"})
+                    new { @class = "form-control", @id = "to-data" })
                 @Html.ValidationMessageFor(model => model.toCurrency, "", new { @class = "text-danger" })
 
             </div>
@@ -49,7 +49,7 @@
                 <label asp-for="sell" class="col-sm-2 col-form-label">Sell</label>
             </div>
             <div class="col-sm-10">
-                <input asp-for="sell" id ="sell" class="form-control" placeholder="">
+                <input asp-for="sell" id="sell" class="form-control" placeholder="">
                 <span asp-validation-for="sell" class="text-danger"></span>
             </div>
         </div>
@@ -64,11 +64,22 @@
             </div>
         </div>
 
-
         <div class="form-group-row">
             <div class="col-sm-10">
                 <button id="dis" type="submit" class="btn btn-primary" disabled>Convert</button>
             </div>
         </div>
 
-    </div>
+        <div class="form-group row">
+            <div class="lable">
+                <label asp-for="comment" class="col-sm-2 col-form-label">comment</label>
+             </div>
+
+                <div class="col-sm-10">
+                    <input asp-for="comment" id="comment-holder" class="form-control" placeholder="">
+                    <span asp-validation-for="comment" class="text-danger"></span>
+                </div>
+            </div>
+
+
+        </div>

@@ -8,7 +8,7 @@
 
 
 <p>
-    <a asp-action="convert">Convert Currencies</a>
+    <a asp-action="back">Go Back</a>
 </p>
 
 
@@ -21,7 +21,7 @@
             <th>
                 Convert To
             </th>
-           
+
             <th>
                 sell
             </th>
@@ -35,26 +35,26 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @item.fromCurrency
-            </td>
-            <td>
-                @item.toCurrency
-            </td>
-           
+            <tr>
+                <td>
+                    @item.fromCurrency
+                </td>
+                <td>
+                    @item.toCurrency
+                </td>
 
-            <td>
-                @item.sell
-            </td>
-            <td>
-                @item.buy
-            </td>
-            <td>
-                @item.CreateDatetime
-            </td>
-            <td>@item.comment</td>
-        </tr>
+
+                <td>
+                    @item.sell
+                </td>
+                <td>
+                    @item.buy
+                </td>
+                <td>
+                    @item.CreateDatetime
+                </td>
+                <td>@item.comment</td>
+            </tr>
         }
     </tbody>
 </table>

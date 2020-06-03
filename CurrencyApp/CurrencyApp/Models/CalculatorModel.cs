@@ -28,7 +28,9 @@ namespace CurrencyApp.Models
         //[RegularExpression(@"^[1-9]\d*(\.\d+)?$", ErrorMessage = "Decimal only")]
         public decimal buy { get; set; }
 
-        
+        public string comment { get; set; }
+
+
 
     }
 }
