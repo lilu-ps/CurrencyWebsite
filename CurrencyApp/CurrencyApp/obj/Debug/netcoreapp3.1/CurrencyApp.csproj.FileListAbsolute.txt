@@ -162,3 +162,4 @@ C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcor
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Report\back.cshtml.g.cs
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Report\suspicious.cshtml.g.cs
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Report\time.cshtml.g.cs
+C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\Razor\Views\Report\IntervalList.cshtml.g.cs

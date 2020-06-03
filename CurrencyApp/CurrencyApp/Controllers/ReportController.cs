@@ -26,29 +26,17 @@ namespace CurrencyApp.Controllers
         [HttpGet]
         public IActionResult time()
         {
-            //CurrencyModel cm = new CurrencyModel();
-            //List<RegisterModel> registeredCurrencies = _regRep.GetAllRegisteredCurrencies().ToList().OrderBy(rm => rm.OrderNum).ToList();
-
-            //List<string> uniqueCurrencies = new List<string>();
-            //foreach (RegisterModel rm in registeredCurrencies)
-            //{
-            //    uniqueCurrencies.Add(rm.CurrencyCode);
-            //}
-            //ViewBag.registeredList = new SelectList(uniqueCurrencies);
-            return View();
+            TimeInterval tm = new TimeInterval();
+            return View(tm);
         }
 
 
-        //[HttpPost]
-        //public IActionResult time()
-        //{
-        //    //if (ModelState.IsValid)
-        //    //{
-        //    //    CurrencyModel cm = _currRep.create(currencyModel);
-        //    //    return RedirectToAction("Index", "Currency");
-        //    //}
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult time(TimeInterval tm)
+        {
+            List<CalculatorModel> model = _calRep.getAllOperations().Where(e => e.CreateDatetime >= tm.from && e.CreateDatetime <= tm.to).ToList();
+            return View("IntervalList", model);
+        }
 
         [HttpGet]
         public IActionResult back()
@@ -61,7 +49,7 @@ namespace CurrencyApp.Controllers
         public IActionResult suspicious()
         {
             List<CalculatorModel> transactions = _calRep.getAllOperations().ToList().OrderByDescending(cm => cm.sell * _currRep.getCurrByName(cm.fromCurrency).BuyRate).ToList();
-
+             
             List<CalculatorModel> suspiciousT = new List<CalculatorModel>();
             int ind = 0;
             foreach (CalculatorModel cur in transactions)
