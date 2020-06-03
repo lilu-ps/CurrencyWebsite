@@ -21,17 +21,11 @@ C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcor
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\CurrencyApp.RazorTargetAssemblyInfo.cs
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\staticwebassets\CurrencyApp.StaticWebAssets.Manifest.cache
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\staticwebassets\CurrencyApp.StaticWebAssets.xml
-C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
-C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\EntityFramework.dll
-C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\System.CodeDom.dll
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\obj\Debug\netcoreapp3.1\CurrencyApp.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\tostring\CurrencyApp\CurrencyApp\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll

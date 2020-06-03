@@ -4,7 +4,7 @@ namespace CurrencyApp.Models
 {
 
 
-    public class CurrencyContext : Microsoft.EntityFrameworkCore.DbContext
+    public class CurrencyContext : DbContext
     {
 
         public Microsoft.EntityFrameworkCore.DbSet<RegisterModel> RegisteredList { get; set; }
@@ -18,12 +18,5 @@ namespace CurrencyApp.Models
         {
         }
         
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<CurrencyModel>().HasData(
-                
-        //        );
-        //}
-
     }
 }
