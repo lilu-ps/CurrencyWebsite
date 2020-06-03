@@ -71,8 +71,10 @@
         if (fromCurrency && toCurrency) {
             if (mult == 1) {
                 result = amount * rate;
-            } else {
+            } else if (parseFloat(rate) != 0) {
                 result = amount / rate;
+            } else if (parseFloat(rate) == 0){
+                result = 0;
             }
         }
         if (result != 0) {

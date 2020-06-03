@@ -80,7 +80,7 @@ namespace CurrencyApp.Controllers
             CurrencyModel from =  _currRep.getCurrByName(fromCurrency);
             CurrencyModel to = _currRep.getCurrByName(toCurrency);
             decimal result = 0;
-            if (from.SellRate != 0)
+            if (to.SellRate != 0)
             {
                 result = 1 / to.SellRate * from.BuyRate;
             }
