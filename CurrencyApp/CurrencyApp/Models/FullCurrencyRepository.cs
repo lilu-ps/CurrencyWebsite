@@ -15,11 +15,8 @@ namespace CurrencyApp.Models
         public CurrencyModel create(CurrencyModel currencyModel)
         {
             currencyModel.Date = DateTime.Now;
-            if (_cc.Currencies.FirstOrDefault(e => e.Currency == currencyModel.Currency) == null)
-            {
-                _cc.Currencies.Add(currencyModel);
-                _cc.SaveChanges();
-            }
+            _cc.Currencies.Add(currencyModel);
+            _cc.SaveChanges();
         
             return currencyModel;
         }

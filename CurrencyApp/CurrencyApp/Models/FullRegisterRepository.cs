@@ -20,11 +20,8 @@ namespace CurrencyApp.Models
 
         public RegisterModel add(RegisterModel registerModel)
         {
-            if (_cc.RegisteredList.FirstOrDefault(e => e.CurrencyCode == registerModel.CurrencyCode) == null)
-            {
-                _cc.RegisteredList.Add(registerModel);
-                _cc.SaveChanges();
-            }
+            _cc.RegisteredList.Add(registerModel);
+            _cc.SaveChanges();
 
             return registerModel;
         }

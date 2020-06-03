@@ -32,15 +32,22 @@ namespace CurrencyApp.Controllers
         public IActionResult create()
         {
             CurrencyModel cm = new CurrencyModel();
+            addDropDownList();
+
+            return View(cm);
+        }
+
+        private void addDropDownList()
+        {
             List<RegisterModel> registeredCurrencies = _regRep.GetAllRegisteredCurrencies().ToList().OrderBy(rm => rm.OrderNum).ToList();
-            
+
             List<string> uniqueCurrencies = new List<string>();
             foreach (RegisterModel rm in registeredCurrencies)
             {
                 uniqueCurrencies.Add(rm.CurrencyCode);
             }
             ViewBag.registeredList = new SelectList(uniqueCurrencies);
-            return View(cm);
+
         }
 
 
@@ -49,6 +56,14 @@ namespace CurrencyApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (_currRep.getCurrByName(currencyModel.Currency) != null)
+                {
+                    ViewData["Exists"] = "Course Already Exists";
+                    CurrencyModel newcm = new CurrencyModel();
+                    addDropDownList();
+
+                    return View(newcm);
+                }
                 CurrencyModel cm = _currRep.create(currencyModel);
                 return RedirectToAction("Index", "Currency");
             }

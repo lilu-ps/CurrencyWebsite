@@ -1,11 +1,13 @@
-﻿.Models.RegisterModel
+﻿@model CurrencyApp.Models.RegisterModel
 
 @{
     ViewData["Title"] = "add";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <form asp-controller="Register" asp-action="add" method="post" class="mt-3">
+    @ViewData["Exists"]
 
     @{
         @await Html.PartialAsync("Main");

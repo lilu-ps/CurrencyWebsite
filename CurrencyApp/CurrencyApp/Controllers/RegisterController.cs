@@ -1,4 +1,5 @@
 ﻿using CurrencyApp.Models;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,8 +33,16 @@ namespace CurrencyApp.Controllers
         [HttpPost]
         public IActionResult add(RegisterModel registerModel)
         {
+
             if (ModelState.IsValid)
             {
+                if (_regRep.GetAllRegisteredCurrencies().FirstOrDefault(e => e.CurrencyCode == registerModel.CurrencyCode) != null)
+                {
+                    ViewData["Exists"] = "Currency Already Exists";
+                    RegisterModel newrm = new RegisterModel();
+                    return View(newrm);
+                }
+
                 RegisterModel rm = _regRep.add(registerModel);
                 return RedirectToAction("Index", "Register");
             }
